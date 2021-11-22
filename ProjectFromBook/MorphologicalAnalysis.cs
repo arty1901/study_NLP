@@ -2,6 +2,11 @@
 
 namespace ProjectFromBook
 {
+    /// <summary>
+    /// МОРФОЛОГИЧЕСКИЙ АНАЛИЗ ТЕКСТОВ
+    /// Используется утилита Yandex Mystem - морфологический анализатор русского языка с поддержкой снятия морфологической неоднозначности
+    /// Стр 63
+    /// </summary>
     public class MorphologicalAnalysis
     {
         private Regex regex;
@@ -12,17 +17,6 @@ namespace ProjectFromBook
         {
             this.regex = regex;
 
-        }
-
-        private void CheckFiles()
-        {
-            var result = true;
-
-            result &= File.Exists(inputFilePath);
-            result &= File.Exists(outputFilePath);
-
-            if (!result)
-                throw new Exception("Cannot open Files");
         }
 
         public async void AnalysTextWithMyStem()
