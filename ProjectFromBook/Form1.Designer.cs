@@ -41,6 +41,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.морфАнализToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileAnalysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clusterAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inputTextBoxSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(252, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Обрабатываемый текст";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -146,7 +148,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.морфАнализToolStripMenuItem});
+            this.морфАнализToolStripMenuItem,
+            this.clusterAnalysisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1099, 24);
@@ -164,9 +167,32 @@
             // fileAnalysToolStripMenuItem
             // 
             this.fileAnalysToolStripMenuItem.Name = "fileAnalysToolStripMenuItem";
-            this.fileAnalysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileAnalysToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fileAnalysToolStripMenuItem.Text = "Анализ файла";
             this.fileAnalysToolStripMenuItem.Click += new System.EventHandler(this.fileAnalysToolStripMenuItem_Click);
+            // 
+            // clusterAnalysisToolStripMenuItem
+            // 
+            this.clusterAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inputTextBoxSourceToolStripMenuItem,
+            this.fileSourceToolStripMenuItem});
+            this.clusterAnalysisToolStripMenuItem.Name = "clusterAnalysisToolStripMenuItem";
+            this.clusterAnalysisToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.clusterAnalysisToolStripMenuItem.Text = "Кластерный анализ";
+            // 
+            // inputTextBoxSourceToolStripMenuItem
+            // 
+            this.inputTextBoxSourceToolStripMenuItem.Name = "inputTextBoxSourceToolStripMenuItem";
+            this.inputTextBoxSourceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputTextBoxSourceToolStripMenuItem.Text = "Из поля ввода";
+            this.inputTextBoxSourceToolStripMenuItem.Click += new System.EventHandler(this.inputTextBoxSourceToolStripMenuItem_Click);
+            // 
+            // fileSourceToolStripMenuItem
+            // 
+            this.fileSourceToolStripMenuItem.Name = "fileSourceToolStripMenuItem";
+            this.fileSourceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileSourceToolStripMenuItem.Text = "Из файла";
+            this.fileSourceToolStripMenuItem.Click += new System.EventHandler(this.fileSourceToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -211,5 +237,8 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem морфАнализToolStripMenuItem;
         private ToolStripMenuItem fileAnalysToolStripMenuItem;
+        private ToolStripMenuItem clusterAnalysisToolStripMenuItem;
+        private ToolStripMenuItem inputTextBoxSourceToolStripMenuItem;
+        private ToolStripMenuItem fileSourceToolStripMenuItem;
     }
 }

@@ -37,7 +37,7 @@ namespace ProjectFromBook
             // -i - Печатать грамматическую информацию, расшифровка ниже.
             // -n - Построчный режим; каждое слово печатается на новой строке.
             // -g - Склеивать информацию словоформ при одной лемме (только при включенной опции -i).
-            command.StartInfo.Arguments = "-ign " + inputFilePath + " " + outputFilePath;
+            command.StartInfo.Arguments = "-ignd " + inputFilePath + " " + outputFilePath;
             await Task.Factory.StartNew(() => 
             { 
                 command.Start(); 

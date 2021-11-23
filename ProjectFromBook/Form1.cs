@@ -25,17 +25,22 @@ namespace ProjectFromBook
         private Regex regex = new Regex("\\W");
         private Bitmap _bitmap;
         private Graphics _graphics;
-        private MorphologicalAnalysis analysis;
+
+        private MorphologicalAnalysis morphologicalAnalysis;
+        private ClusterAnalysis clusterAnalysis;
 
         public Form1()
         {
             InitializeComponent();
-            analysis = new MorphologicalAnalysis(regex);
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+            morphologicalAnalysis = new MorphologicalAnalysis(regex);
 
+            clusterAnalysis = new ClusterAnalysis(
+                numberOfIterations: 1000, 
+                numberOfClusters: 2, 
+                ei: 0.001f, 
+                mi: 1.6f, 
+                displayDelegate: DisplayMessage);
         }
 
         /// <summary>
@@ -54,12 +59,6 @@ namespace ProjectFromBook
                     freqDic[s.ToUpper()]++;
                 else
                     freqDic.Add(s.ToUpper(), 1);
-
-            var builder = new StringBuilder();
-            foreach (var s in freqDic.OrderByDescending(x => x.Value))
-                 builder.Append( $"{s.Key} {s.Value} {Environment.NewLine}");
-            
-            outputTextBox.Text = builder.ToString();
             
             return freqDic;
         }
@@ -71,11 +70,11 @@ namespace ProjectFromBook
         /// <param name="e"></param>
         private void freqButton_Click(object sender, EventArgs e)
         {
-            //string[] masSt = InputTextBox.Text.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
             string[] tokens = regex.Split(InputTextBox.Text);
             
             var dict = GetFrequencyOfWord(tokens);
 
+            PrintDictionaryToOutputTextBox(dict);
             DrawGrahic(dict);
         }
 
@@ -93,11 +92,12 @@ namespace ProjectFromBook
             foreach (string s in stopWords)
                 inputStr.Replace(s, string.Empty);
 
-            //string[] masSt = inputStr.Split(splitChars, StringSplitOptions.RemoveEmptyEntries);
             string[] masSt = regex.Split(inputStr);
 
             Dictionary<string, int> FreqDic = GetFrequencyOfWord(masSt);
-            
+
+            PrintDictionaryToOutputTextBox(FreqDic);
+
             string ModS = InputTextBox.Text.Replace(BigramTextBox.Text.Trim(), "");
             string[] masSt2 = ModS.Split(new char[] { ' ', '.', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -120,6 +120,15 @@ namespace ProjectFromBook
                 outputTextBox.Text += Environment.NewLine + "Не значимо";
 
             DrawGrahic(FreqDic);
+        }
+
+        private void PrintDictionaryToOutputTextBox(Dictionary<string, int> dict)
+        {
+            var builder = new StringBuilder();
+            foreach (var s in dict.OrderByDescending(x => x.Value))
+                builder.Append($"{s.Key} {s.Value} {Environment.NewLine}");
+
+            outputTextBox.Text = builder.ToString();
         }
 
         /// <summary>
@@ -170,6 +179,12 @@ namespace ProjectFromBook
 
         private void openFileButton_Click(object sender, EventArgs e)
         {
+            string[] tokens = regex.Split(GetContentFromFile());
+            GetFrequencyOfWord(tokens);
+        }
+
+        private string GetContentFromFile()
+        {
             var fileContent = string.Empty;
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -189,13 +204,42 @@ namespace ProjectFromBook
                 }
             }
 
-            string[] tokens = regex.Split(fileContent);
-            GetFrequencyOfWord(tokens);
+            return fileContent;
         }
 
         private void fileAnalysToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            analysis.AnalysTextWithMyStem();
+            morphologicalAnalysis.AnalysTextWithMyStem();
+        }
+
+        public void DisplayMessage(string message)
+        {
+            outputTextBox.Text += message + Environment.NewLine;
+        }
+
+        /// <summary>
+        /// Посчитать кластеризацию из поля ввода
+        /// </summary>
+        private void inputTextBoxSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] tokens = regex.Split(InputTextBox.Text.ToUpper());
+            DoClusterWork(tokens);
+        }
+
+        /// <summary>
+        /// Посчитать кластеризацию из файла
+        /// </summary>
+        private void fileSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string[] tokens = regex.Split(GetContentFromFile().ToUpper());
+            DoClusterWork(tokens);
+        }
+
+        private void DoClusterWork(string[] tokens)
+        {
+            var dict = GetFrequencyOfWord(tokens);
+            clusterAnalysis.Objecti = dict.Values.ToArray();
+            DisplayMessage(clusterAnalysis.Work(dict));
         }
     }
 }
