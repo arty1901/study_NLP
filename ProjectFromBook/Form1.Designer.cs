@@ -70,11 +70,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(186, 157);
+            this.label2.Location = new System.Drawing.Point(126, 157);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 30);
+            this.label2.Size = new System.Drawing.Size(360, 30);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Биграмма для анализа";
+            this.label2.Text = "Входные параметры для расчетов";
             // 
             // BigramTextBox
             // 
@@ -183,14 +183,14 @@
             // inputTextBoxSourceToolStripMenuItem
             // 
             this.inputTextBoxSourceToolStripMenuItem.Name = "inputTextBoxSourceToolStripMenuItem";
-            this.inputTextBoxSourceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inputTextBoxSourceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.inputTextBoxSourceToolStripMenuItem.Text = "Из поля ввода";
             this.inputTextBoxSourceToolStripMenuItem.Click += new System.EventHandler(this.inputTextBoxSourceToolStripMenuItem_Click);
             // 
             // fileSourceToolStripMenuItem
             // 
             this.fileSourceToolStripMenuItem.Name = "fileSourceToolStripMenuItem";
-            this.fileSourceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileSourceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fileSourceToolStripMenuItem.Text = "Из файла";
             this.fileSourceToolStripMenuItem.Click += new System.EventHandler(this.fileSourceToolStripMenuItem_Click);
             // 
