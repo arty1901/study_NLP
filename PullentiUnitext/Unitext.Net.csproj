@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+     <SchemaVersion>2.0</SchemaVersion>
+     <OutputType>Library</OutputType>
+     <RootNamespace>Pullenti</RootNamespace>
+     <AssemblyName>Pullenti.Net</AssemblyName>
+     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Pullenti.Net.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Pullenti.Net.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+      <Compile Include="Unitext\Internal\Html\EmlPart.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlCorrector.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlHelper.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlNode.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlParser.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlParserNode.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlSection.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlSectionItem.cs" />
+      <Compile Include="Unitext\Internal\Html\HtmlTag.cs" />
+      <Compile Include="Unitext\Internal\Html\MhtHelper.cs" />
+      <Compile Include="Unitext\Internal\Html\MhtPart.cs" />
+      <Compile Include="Unitext\Internal\Html\UnitextHtmlGen.cs" />
+      <Compile Include="Unitext\Internal\Misc\BorderInfo.cs" />
+      <Compile Include="Unitext\Internal\Misc\CsvHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\EpubHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\ExcelHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\Fb2Helper.cs" />
+      <Compile Include="Unitext\Internal\Misc\MyXmlNodeType.cs" />
+      <Compile Include="Unitext\Internal\Misc\MyXmlReader.cs" />
+      <Compile Include="Unitext\Internal\Misc\MyZipEntry.cs" />
+      <Compile Include="Unitext\Internal\Misc\MyZipFile.cs" />
+      <Compile Include="Unitext\Internal\Misc\OdtHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\PngChunk.cs" />
+      <Compile Include="Unitext\Internal\Misc\PngHead.cs" />
+      <Compile Include="Unitext\Internal\Misc\PngWrapper.cs" />
+      <Compile Include="Unitext\Internal\Misc\TiffHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\WebdingsHelper.cs" />
+      <Compile Include="Unitext\Internal\Misc\WingdingsHelper.cs" />
+      <Compile Include="Unitext\Internal\Pdf\Matrix.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfArray.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfBoolValue.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfDictionary.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfFig.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfFile.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfFont.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfFontGlyph.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfHelper.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfImage.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfIntValue.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfName.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfNull.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfObject.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfPage.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfPathState.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfRealValue.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfRect.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfReference.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfStream.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfStringValue.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfText.cs" />
+      <Compile Include="Unitext\Internal\Pdf\PdfTextState.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RftItemTyp.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextBlock.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextCell.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextImage.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextItem.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextRow.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RichTextTable.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RtfHelper.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RtfItem.cs" />
+      <Compile Include="Unitext\Internal\Rtf\RtfItemImage.cs" />
+      <Compile Include="Unitext\Internal\Uni\ChangeTextPosInfo.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrFootnoteContainer.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrFootnoteTag.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrFootnoteTyps.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrLine.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrPageText.cs" />
+      <Compile Include="Unitext\Internal\Uni\CorrTable.cs" />
+      <Compile Include="Unitext\Internal\Uni\IUnitextGenNumStyle.cs" />
+      <Compile Include="Unitext\Internal\Uni\LocCorrTyp.cs" />
+      <Compile Include="Unitext\Internal\Uni\StyleHelper.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnilayoutHelper.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextCorrHelper.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextGen.cs" />
+      <Compile Include="Unitext\Internal\Uni\UniTextGenCell.cs" />
+      <Compile Include="Unitext\Internal\Uni\UniTextGenNumLevel.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextGenNumStyle.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextGenNumStyleEx.cs" />
+      <Compile Include="Unitext\Internal\Uni\UniTextGenNumType.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextGenTable.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextHelper.cs" />
+      <Compile Include="Unitext\Internal\Uni\UnitextImplantateHelper.cs" />
+      <Compile Include="Unitext\Internal\Word\BasicTypesReader.cs" />
+      <Compile Include="Unitext\Internal\Word\CFDirectoryEntry.cs" />
+      <Compile Include="Unitext\Internal\Word\CFHeader.cs" />
+      <Compile Include="Unitext\Internal\Word\CharacterFormatting.cs" />
+      <Compile Include="Unitext\Internal\Word\Chpx.cs" />
+      <Compile Include="Unitext\Internal\Word\ChpxFkp.cs" />
+      <Compile Include="Unitext\Internal\Word\Clx.cs" />
+      <Compile Include="Unitext\Internal\Word\ColorRef.cs" />
+      <Compile Include="Unitext\Internal\Word\CompoundFileObjectType.cs" />
+      <Compile Include="Unitext\Internal\Word\CompoundFileStorage.cs" />
+      <Compile Include="Unitext\Internal\Word\CompoundFileStream.cs" />
+      <Compile Include="Unitext\Internal\Word\CompoundFileSystem.cs" />
+      <Compile Include="Unitext\Internal\Word\DirectoryObjectTypes.cs" />
+      <Compile Include="Unitext\Internal\Word\DirectoryStreamIds.cs" />
+      <Compile Include="Unitext\Internal\Word\DocNumStyles.cs" />
+      <Compile Include="Unitext\Internal\Word\DocSection.cs" />
+      <Compile Include="Unitext\Internal\Word\DocTable.cs" />
+      <Compile Include="Unitext\Internal\Word\DocTableCell.cs" />
+      <Compile Include="Unitext\Internal\Word\DocTableRow.cs" />
+      <Compile Include="Unitext\Internal\Word\DocTextStyle.cs" />
+      <Compile Include="Unitext\Internal\Word\DocTextStyles.cs" />
+      <Compile Include="Unitext\Internal\Word\DocxPart.cs" />
+      <Compile Include="Unitext\Internal\Word\DocxToText.cs" />
+      <Compile Include="Unitext\Internal\Word\DTTM.cs" />
+      <Compile Include="Unitext\Internal\Word\ExtendedName.cs" />
+      <Compile Include="Unitext\Internal\Word\FATSectorIds.cs" />
+      <Compile Include="Unitext\Internal\Word\FATStream.cs" />
+      <Compile Include="Unitext\Internal\Word\FcCompressed.cs" />
+      <Compile Include="Unitext\Internal\Word\FcCompressedMapping.cs" />
+      <Compile Include="Unitext\Internal\Word\Fib.cs" />
+      <Compile Include="Unitext\Internal\Word\FibBase.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRbFcLcb2000.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRbFcLcb2002.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRbFcLcb2003.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRbFcLcb2007.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRbFcLcb97.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgCswNew.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgCswNew2000.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgCswNew2007.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgFcLcb.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgLw97.cs" />
+      <Compile Include="Unitext\Internal\Word\FibRgW97.cs" />
+      <Compile Include="Unitext\Internal\Word\FibStructuresReader.cs" />
+      <Compile Include="Unitext\Internal\Word\FormattingLevel.cs" />
+      <Compile Include="Unitext\Internal\Word\FtsWidth.cs" />
+      <Compile Include="Unitext\Internal\Word\FtsWidthType.cs" />
+      <Compile Include="Unitext\Internal\Word\GRFSTD.cs" />
+      <Compile Include="Unitext\Internal\Word\GrLPUpxSw.cs" />
+      <Compile Include="Unitext\Internal\Word\GrpPrlAndIstd.cs" />
+      <Compile Include="Unitext\Internal\Word\LSD.cs" />
+      <Compile Include="Unitext\Internal\Word\MiniFATStream.cs" />
+      <Compile Include="Unitext\Internal\Word\MSOfficeHelper.cs" />
+      <Compile Include="Unitext\Internal\Word\NFibValues.cs" />
+      <Compile Include="Unitext\Internal\Word\PapxFkp.cs" />
+      <Compile Include="Unitext\Internal\Word\PapxInFkps.cs" />
+      <Compile Include="Unitext\Internal\Word\Paragraph.cs" />
+      <Compile Include="Unitext\Internal\Word\Pcd.cs" />
+      <Compile Include="Unitext\Internal\Word\Pcdt.cs" />
+      <Compile Include="Unitext\Internal\Word\PlcBteChpx.cs" />
+      <Compile Include="Unitext\Internal\Word\PlcBtePapx.cs" />
+      <Compile Include="Unitext\Internal\Word\PlcPcd.cs" />
+      <Compile Include="Unitext\Internal\Word\Prc.cs" />
+      <Compile Include="Unitext\Internal\Word\Prl.cs" />
+      <Compile Include="Unitext\Internal\Word\Prm.cs" />
+      <Compile Include="Unitext\Internal\Word\ReaderUtils.cs" />
+      <Compile Include="Unitext\Internal\Word\ReadUtils.cs" />
+      <Compile Include="Unitext\Internal\Word\SinglePropertyModifiers.cs" />
+      <Compile Include="Unitext\Internal\Word\SinglePropertyValue.cs" />
+      <Compile Include="Unitext\Internal\Word\Sprm.cs" />
+      <Compile Include="Unitext\Internal\Word\STD.cs" />
+      <Compile Include="Unitext\Internal\Word\Stdf.cs" />
+      <Compile Include="Unitext\Internal\Word\StdfBase.cs" />
+      <Compile Include="Unitext\Internal\Word\StdfPost2000OrNone.cs" />
+      <Compile Include="Unitext\Internal\Word\StkCharGRLPUPX.cs" />
+      <Compile Include="Unitext\Internal\Word\StkCharUpxGrLPUpxRM.cs" />
+      <Compile Include="Unitext\Internal\Word\StkListGRLPUPX.cs" />
+      <Compile Include="Unitext\Internal\Word\StkParaGRLPUPX.cs" />
+      <Compile Include="Unitext\Internal\Word\StkParaUpxGrLPUpxRM.cs" />
+      <Compile Include="Unitext\Internal\Word\StkTableGRLPUPX.cs" />
+      <Compile Include="Unitext\Internal\Word\STSH.cs" />
+      <Compile Include="Unitext\Internal\Word\Stshi.cs" />
+      <Compile Include="Unitext\Internal\Word\Stshif.cs" />
+      <Compile Include="Unitext\Internal\Word\StshiLsd.cs" />
+      <Compile Include="Unitext\Internal\Word\StyleCollection.cs" />
+      <Compile Include="Unitext\Internal\Word\StyleDefinition.cs" />
+      <Compile Include="Unitext\Internal\Word\ToggleOperand.cs" />
+      <Compile Include="Unitext\Internal\Word\TreeColors.cs" />
+      <Compile Include="Unitext\Internal\Word\UpxChpx.cs" />
+      <Compile Include="Unitext\Internal\Word\UpxPapx.cs" />
+      <Compile Include="Unitext\Internal\Word\UpxRm.cs" />
+      <Compile Include="Unitext\Internal\Word\UpxTapx.cs" />
+      <Compile Include="Unitext\Internal\Word\WordDocument.cs" />
+      <Compile Include="Unitext\Internal\Word\Xst.cs" />
+      <Compile Include="Unitext\Internal\Word\Xstz.cs" />
+      <Compile Include="Unitext\Internal\Zip\Adler32.cs" />
+      <Compile Include="Unitext\Internal\Zip\BaseArchiveStorage.cs" />
+      <Compile Include="Unitext\Internal\Zip\CompressionMethod.cs" />
+      <Compile Include="Unitext\Internal\Zip\Crc32.cs" />
+      <Compile Include="Unitext\Internal\Zip\Deflater.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflaterConstants.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflaterEngine.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflaterHuffman.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflaterOutputStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflaterPending.cs" />
+      <Compile Include="Unitext\Internal\Zip\DeflateStrategy.cs" />
+      <Compile Include="Unitext\Internal\Zip\DescriptorData.cs" />
+      <Compile Include="Unitext\Internal\Zip\DiskArchiveStorage.cs" />
+      <Compile Include="Unitext\Internal\Zip\DynamicDiskDataSource.cs" />
+      <Compile Include="Unitext\Internal\Zip\EntryPatchData.cs" />
+      <Compile Include="Unitext\Internal\Zip\ExtendedUnixData.cs" />
+      <Compile Include="Unitext\Internal\Zip\FileUpdateMode.cs" />
+      <Compile Include="Unitext\Internal\Zip\GeneralBitFlags.cs" />
+      <Compile Include="Unitext\Internal\Zip\HostSystemID.cs" />
+      <Compile Include="Unitext\Internal\Zip\IArchiveStorage.cs" />
+      <Compile Include="Unitext\Internal\Zip\IChecksum.cs" />
+      <Compile Include="Unitext\Internal\Zip\IDynamicDataSource.cs" />
+      <Compile Include="Unitext\Internal\Zip\IEntryFactory.cs" />
+      <Compile Include="Unitext\Internal\Zip\INameTransform.cs" />
+      <Compile Include="Unitext\Internal\Zip\Inflater.cs" />
+      <Compile Include="Unitext\Internal\Zip\InflaterDynHeader.cs" />
+      <Compile Include="Unitext\Internal\Zip\InflaterHuffmanTree.cs" />
+      <Compile Include="Unitext\Internal\Zip\InflaterInputBuffer.cs" />
+      <Compile Include="Unitext\Internal\Zip\InflaterInputStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\IStaticDataSource.cs" />
+      <Compile Include="Unitext\Internal\Zip\ITaggedData.cs" />
+      <Compile Include="Unitext\Internal\Zip\ITaggedDataFactory.cs" />
+      <Compile Include="Unitext\Internal\Zip\MemoryArchiveStorage.cs" />
+      <Compile Include="Unitext\Internal\Zip\NTTaggedData.cs" />
+      <Compile Include="Unitext\Internal\Zip\OutputWindow.cs" />
+      <Compile Include="Unitext\Internal\Zip\PartialInputStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\PendingBuffer.cs" />
+      <Compile Include="Unitext\Internal\Zip\RawTaggedData.cs" />
+      <Compile Include="Unitext\Internal\Zip\StaticDiskDataSource.cs" />
+      <Compile Include="Unitext\Internal\Zip\StreamManipulator.cs" />
+      <Compile Include="Unitext\Internal\Zip\StreamUtils.cs" />
+      <Compile Include="Unitext\Internal\Zip\TestOperation.cs" />
+      <Compile Include="Unitext\Internal\Zip\TestStatus.cs" />
+      <Compile Include="Unitext\Internal\Zip\TestStrategy.cs" />
+      <Compile Include="Unitext\Internal\Zip\UncompressedStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\UpdateCommand.cs" />
+      <Compile Include="Unitext\Internal\Zip\UseZip64.cs" />
+      <Compile Include="Unitext\Internal\Zip\WindowsPathUtils.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipConstants.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipEntry.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipEntryFactory.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipExtraData.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipFile.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipHelperStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipInputStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipNameTransform.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipOutputStream.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipString.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipTestResultHandler.cs" />
+      <Compile Include="Unitext\Internal\Zip\ZipUpdate.cs" />
+      <Compile Include="Unitext\CorrectDocumentParam.cs" />
+      <Compile Include="Unitext\CreateDocumentParam.cs" />
+      <Compile Include="Unitext\FileFormat.cs" />
+      <Compile Include="Unitext\FileFormatClass.cs" />
+      <Compile Include="Unitext\GetHtmlParam.cs" />
+      <Compile Include="Unitext\GetHtmlParamFootnoteOutType.cs" />
+      <Compile Include="Unitext\GetPlaintextParam.cs" />
+      <Compile Include="Unitext\IUnitextExtension.cs" />
+      <Compile Include="Unitext\UnilayOcrQuality.cs" />
+      <Compile Include="Unitext\UnilayPage.cs" />
+      <Compile Include="Unitext\UnilayRectangle.cs" />
+      <Compile Include="Unitext\UnitextComment.cs" />
+      <Compile Include="Unitext\UnitextContainer.cs" />
+      <Compile Include="Unitext\UnitextContainerType.cs" />
+      <Compile Include="Unitext\UnitextDocblock.cs" />
+      <Compile Include="Unitext\UnitextDocblockType.cs" />
+      <Compile Include="Unitext\UnitextDocument.cs" />
+      <Compile Include="Unitext\UnitextExcelSourceInfo.cs" />
+      <Compile Include="Unitext\UnitextFootnote.cs" />
+      <Compile Include="Unitext\UnitextHyperlink.cs" />
+      <Compile Include="Unitext\UnitextImage.cs" />
+      <Compile Include="Unitext\UnitextItem.cs" />
+      <Compile Include="Unitext\UnitextList.cs" />
+      <Compile Include="Unitext\UnitextListitem.cs" />
+      <Compile Include="Unitext\UnitextMisc.cs" />
+      <Compile Include="Unitext\UnitextMiscType.cs" />
+      <Compile Include="Unitext\UnitextNewline.cs" />
+      <Compile Include="Unitext\UnitextPagebreak.cs" />
+      <Compile Include="Unitext\UnitextPagesection.cs" />
+      <Compile Include="Unitext\UnitextPlaintext.cs" />
+      <Compile Include="Unitext\UnitextPlaintextType.cs" />
+      <Compile Include="Unitext\UnitextService.cs" />
+      <Compile Include="Unitext\UnitextStyle.cs" />
+      <Compile Include="Unitext\UnitextStyledFragment.cs" />
+      <Compile Include="Unitext\UnitextStyledFragmentType.cs" />
+      <Compile Include="Unitext\UnitextTable.cs" />
+      <Compile Include="Unitext\UnitextTablecell.cs" />
+      <Compile Include="Util\ArchiveHelper.cs" />
+      <Compile Include="Util\DbfTable.cs" />
+      <Compile Include="Util\EncodingStandard.cs" />
+      <Compile Include="Util\EncodingWrapper.cs" />
+      <Compile Include="Util\FileFormatsHelper.cs" />
+      <Compile Include="Util\FileInArchive.cs" />
+      <Compile Include="Util\IXmlReadWriteSupport.cs" />
+      <Compile Include="Util\MiscHelper.cs" />
+      <Compile Include="Util\SizeunitConverter.cs" />
+      <Compile Include="Util\StructExpressBlock.cs" />
+      <Compile Include="Util\StructExpressLine.cs" />
+      <Compile Include="Util\TextHelper.cs" />
+  </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

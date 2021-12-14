@@ -1,0 +1,44 @@
+﻿/*
+ * SDK Pullenti Unitext, version 4.10, november 2021. Copyright (c) 2013, Pullenti. All rights reserved. 
+ * Non-Commercial Freeware and Commercial Software. 
+ * This class is generated using the converter UniSharping (www.unisharping.ru) from Pullenti C# project. 
+ * The latest version of the code is available on the site www.pullenti.ru
+ */
+
+using System;
+
+namespace Pullenti.Unitext.Internal.Word
+{
+    class ColorRef
+    {
+        public bool IsAuto
+        {
+            get;
+            set;
+        }
+        public byte R
+        {
+            get;
+            set;
+        }
+        public byte G
+        {
+            get;
+            set;
+        }
+        public byte B
+        {
+            get;
+            set;
+        }
+        internal static ColorRef FromBytes(byte[] value, int offset)
+        {
+            ColorRef c = new ColorRef();
+            c.R = value[0];
+            c.G = value[1];
+            c.B = value[2];
+            c.IsAuto = value[3] != 0;
+            return c;
+        }
+    }
+}
