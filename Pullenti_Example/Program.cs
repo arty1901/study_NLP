@@ -1,13 +1,14 @@
 ﻿using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 using Pullenti;
 using Pullenti.Morph;
 using Pullenti.Ner;
-using Pullenti.Ner.Core;
 using Spectre.Console;
 
 namespace Pullenti_Example
 {
+    /// <summary>
+    /// Пример использования SDK Pullenti
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)
@@ -16,15 +17,21 @@ namespace Pullenti_Example
 
             // Анализируемый текст
             string txt = "Система разрабатывается с 2011 года российским программистом Михаилом Жуковым, проживающим в Москве на Красной площади в доме номер один на втором этаже. " +
-                         "Конкурентов у него много: Abbyy, Yandex, ООО \"Russian Context Optimizer\" (RCO) и другие компании. " +
+                         "Конкурентов у него много: Abbyy, Yandex, ООО \"Russian Context Optimizer\" (RCO), A-120 и другие компании. " +
                          "Он планирует продать SDK за 1.120.000.001,99 (миллиард сто двадцать миллионов один рубль 99 копеек) рублей, без НДС.";
             string txt1 = "Глокая куздра штеко будланула бокра и курдячит бокрёнка";
-            string textForAnalys = txt;
+            string txt2 = "Я шел домой по незнакомой улице";
+            string txt3 =
+                "Теория пределов – это один из разделов математического анализа. Вопрос решения пределов является достаточно обширным, " +
+                "поскольку существуют десятки приемов решений пределов различных видов. Существуют десятки нюансов и хитростей, " +
+                "позволяющих решить тот или иной предел. Тем не менее, мы все-таки попробуем разобраться в основных типах пределов, " +
+                "которые наиболее часто встречаются на практике. Yandex";
+            string textForAnalys = txt3;
 
             AnsiConsole.MarkupLine("[bold yellow]Текст для анализа[/]: {0}", textForAnalys);
             AnsiConsole.WriteLine();
 
-            var analyzers = new Tree("[yellow bold]Доступные анализаторы[/]");
+            var analyzers = new Tree("[yellow bold]Доступные анализаторы, которые используются по умолчанию[/]");
             foreach (var analyzer in ProcessorService.Analyzers)
                 analyzers.AddNode(analyzer.Caption);
             AnsiConsole.Write(analyzers);
@@ -34,46 +41,22 @@ namespace Pullenti_Example
 
             var root = new Tree("[bold yellow]Результат анализатора[/]").Style("red");
 
-            var entities = root.AddNode("Entities");
-            foreach (var areEntity in are.Entities)
+            // Отображение сущностей в предложении
+            if (are.Entities.Count == 0)
+                AnsiConsole.MarkupLine("[red bold]Сущности не выделены[/]");
+            else
             {
-                var entity = entities.AddNode($"[blue bold]{areEntity.InstanceOf.Caption}[/]: ${areEntity}");
-                foreach (var areEntitySlot in areEntity.Slots)
-                    entity.AddNode(areEntitySlot.ToString());
-            }
-
-            // var numberTokens = root.AddNode("Числовые токены");
-            for (var t = are.FirstToken; t != null; t = t.Next)
-            {
-                // может, номер задан явно цифрами или прописью
-                NumberToken num = t as NumberToken;
-
-                Token t1 = null; // ссылка на слово "сессия"
-                if (num != null) t1 = t.Next;
-                else
+                var entities = root.AddNode("Сущности");
+                foreach (var areEntity in are.Entities)
                 {
-                    // пробуем выделить римское число
-                    num = NumberHelper.TryParseRoman(t);
-                    if (num != null)
-                    {
-                        // поскольку токен num не встроен в общую цепочку, а BeginToken\EndToken
-                        // указывают на первый и последний токены цепочки, то следующий не num.Next,
-                        // а именно num.EndToken.Next
-                        t1 = num.EndToken.Next;
-                    }
+                    var entity = entities.AddNode($"[blue bold]{areEntity.InstanceOf.Caption}[/]: ${areEntity}");
+                    foreach (var areEntitySlot in areEntity.Slots)
+                        entity.AddNode(areEntitySlot.ToString());
                 }
-                if (t1 == null || num == null)
-                    continue;
-                if (!t1.IsValue("СЕССИЯ"))
-                    continue;
 
-// нашли
-                AnsiConsole.Write("\r\nSession {0} on position {1}", num.Value, t.BeginChar);
-                t = t1;
+                AnsiConsole.Write(root);
+                AnsiConsole.WriteLine();
             }
-
-            AnsiConsole.Write(root);
-            AnsiConsole.WriteLine();
             
             PrintInTable(MorphologyService.Process(textForAnalys));
         }
@@ -94,6 +77,10 @@ namespace Pullenti_Example
             AnsiConsole.WriteLine();
         }
 
+        /// <summary>
+        /// Морфологический анализ
+        /// </summary>
+        /// <param name="processor"></param>
         private static void PrintInTable(List<MorphToken> processor)
         {
             var table = new Table
